@@ -1,0 +1,69 @@
+[project]
+name = "mlx-d"
+version = "0.1.0"
+description = "Masked diffusion language models on Apple Silicon — LLaDA sampling, speculative decoding, and benchmarks via MLX"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.10"
+authors = [
+    {name = "mlx-d contributors"},
+]
+keywords = ["mlx", "diffusion", "language-model", "llada", "apple-silicon", "masked-diffusion"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "mlx>=0.24.0",
+    "mlx-lm>=0.22.0",
+    "transformers>=4.40.0",
+    "huggingface-hub>=0.30.0",
+    "safetensors>=0.5.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "ruff>=0.4.0",
+]
+voice = [
+    "mlx-whisper>=0.4.0",
+    "mlx-audio>=0.4.0",
+    "misaki[en]",
+    "sounddevice>=0.5.0",
+]
+
+[project.scripts]
+mlx-d = "mlx_d.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/rizzler/mlx-d"
+Documentation = "https://rizzler.github.io/mlx-d"
+Repository = "https://github.com/rizzler/mlx-d"
+Issues = "https://github.com/rizzler/mlx-d/issues"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["mlx_d*"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
