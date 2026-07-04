@@ -128,22 +128,8 @@ mlx-d/
 
 ### How it works
 
-LLaDA's key insight: take a LLaMA-3 8B model, remove the causal attention mask, and train it as a masked diffusion model. The architecture is identical — only the mask is different.
+LLaDA's key insight: take a LLaMA-3 8B model, remove the causal attention mask, and train it as a masked diffusion model. The architecture is identical, only the mask is different.
 
-```
-┌─────────────────────────────────────────────────┐
-│                   GENERATION                     │
-│                                                  │
-│  Step 0:  [M] [M] [M] [M] [M] [M] [M] [M] [M]  │
-│  Step 16: LLaDA [M] [M] [M] [M] model [M] [M]   │
-│  Step 32: LLaDA is [M] masked [M] language model  │
-│  Step 48: LLaDA is a masked diffusion language    │
-│  Step 64: LLaDA is a masked diffusion LM that ... │
-│                                                  │
-│  ↑ High-confidence tokens commit first            │
-│  ↑ Structure emerges before details               │
-└─────────────────────────────────────────────────┘
-```
 
 **Loading trick** (in `model.py`):
 ```python
