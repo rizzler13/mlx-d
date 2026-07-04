@@ -5,7 +5,7 @@
 <h3 align="center">Masked diffusion language models on Apple Silicon</h3>
 
 <p align="center">
-  <a href="https://rizzler.github.io/mlx-d/">Blog</a> ·
+  <a href="https://diffusiononmlx.netlify.app//">Blog</a> ·
   <a href="#quick-start">Quick Start</a> ·
   <a href="#examples">Examples</a> ·
   <a href="#architecture">Architecture</a> ·
